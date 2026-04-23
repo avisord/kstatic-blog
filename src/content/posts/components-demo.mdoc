@@ -1,0 +1,29 @@
+---
+title: Custom components in action
+publishedDate: 2026-04-23
+summary: >-
+  This post uses a callout and an embedded YouTube video — both inserted from
+  the Keystatic editor, both rendered as real React components on the frontend.
+coverImage: cover.svg
+---
+Keystatic lets you define **typed content components** that show up in the editor as form fields. The client never types JSX — they click "Insert → Callout", fill in a dropdown, and type body text.
+
+{% callout intent="info" %}
+This is an **info** callout. The client chose "Info" from a dropdown, then typed this paragraph inside. On save, Keystatic wrote a `{% callout %}` tag to the `.mdoc` file.
+{% /callout %}
+
+{% callout intent="warning" %}
+Change `intent` to `warning` and it restyles — no code change needed. The tradeoff of styles vs. variants is entirely the frontend's concern.
+{% /callout %}
+
+Below is a YouTube video — a standalone block component. The client paste a URL, optionally adds a caption, and that's it.
+
+{% youtube
+   url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+   caption="An embedded video block" /%}
+
+The raw `.mdoc` file stays human-readable; the React renderer can do whatever it wants with the data.
+
+{% youtube
+   url="https://www.youtube.com/watch?v=4kf-X4whBWw"
+   caption="music video" /%}
